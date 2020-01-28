@@ -30558,7 +30558,7 @@ void main() {
 	        gltf.scene.traverse( function ( child ) {
 	          if ( child.isMesh ) {
 	            roughnessMipmapper.generateMipmaps( child.material );
-	            child.material.envMapIntensity = .2;
+	            child.material.envMapIntensity = .5;
 	            child.material.roughness = 1.7;
 	            child.material.needsUpdate = true;
 	            child.frustumCulled = false;
@@ -30574,7 +30574,7 @@ void main() {
 	  camera.position.set(0, 1.8, 2);
 	  camera.lookAt(0, 2, 0);
 	  scene.add(camera);
-	  renderer = new WebGLRenderer( { antialias: true } );
+	  renderer = new WebGLRenderer({ antialias: true });
 	  renderer.setPixelRatio(window.devicePixelRatio);
 	  renderer.setSize(window.innerWidth, window.innerHeight);
 	  renderer.outputEncoding = sRGBEncoding;
@@ -30583,13 +30583,12 @@ void main() {
 	  var pmremGenerator = new PMREMGenerator(renderer);
 	  pmremGenerator.compileEquirectangularShader();
 	  scene.add(new GridHelper(10, 10));
-	  const light1  = new AmbientLight(0xffffff, .3);
+	  const light1  = new AmbientLight(0xffffff, 2);
 	  light1.name = 'ambient_light';
 	  scene.add( light1 );
 	  const light2  = new DirectionalLight(0xffffff, 2.5);
 	  light2.name = 'main_light';
 	  light2.position.set(0, 1, 0);
-	  scene.add( light2 );
 	  controls = new OrbitControls(camera, renderer.domElement);
 	  controls.target0.set(0, 1, 0);
 	  controls.target.set(0, 1, 0);
