@@ -6,7 +6,6 @@ const BANK_RIGHT = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), Math.
 const BANK_LEFT = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), -Math.PI/2);
 
 const FORWARD = new Vector3(0, 0, 1);
-const mixamoUP = new Vector3(1, 0, 0);
 const ZERO_V = new Vector3(0, 0, 0);
 const Y_180 = new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), Math.PI);
 const Z_180 = new Quaternion().setFromAxisAngle(new Vector3(0, 0, 1), Math.PI);
@@ -124,14 +123,18 @@ class ActorIK {
     const elbowPosition = v4.copy(upperArmPosition).add(targetPos).divideScalar(2)
       .add(v5.copy(offsetDirection).multiplyScalar(offsetDistance));
 
-    //mixamoUP.set(1, 0, 0).applyQuaternion(shoulderQuat);
-    // upper.up.copy(mixamoUP);
+    axisHelper.position.copy(elbowPosition);//debug
+
+    isLeft ? v6.set(-1, 0, 0) : v6.set(1, 0, 0) ;
+    v6.applyQuaternion(shoulderQuat);
+    // upper.up.copy(v6);
     upper.lookAt(elbowPosition);
     upper.updateMatrixWorld();
-    
-    axisHelper.position.copy(elbowPosition);
 
-    // lower.up.copy(mixamoUP);
+    upper.matrixWorld.decompose(v3, shoulderQuat, v3);
+    // isLeft ? v6.set(1, 0, 0) : v6.set(-1, 0, 0) ;
+    // v6.applyQuaternion(shoulderQuat);
+    // lower.up.copy(v6);
     lower.lookAt(targetPos);
     lower.updateWorldMatrix(true);
 
@@ -139,8 +142,6 @@ class ActorIK {
     //     .multiply(isLeft ? BANK_LEFT : BANK_RIGHT)
     //     .premultiply(getWorldQuaternion(lower, q4).inverse());
   }
-
-
 }
 
 export { ActorIK };

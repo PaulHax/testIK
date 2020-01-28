@@ -6,15 +6,15 @@ const cleanup = require('rollup-plugin-cleanup');
 export default {
   input: 'examples/examples.js',
   output: [{
-    file: './.ghpages/examples.js',
+    file: './examples/build.js',
     format: 'umd',
     name: 'App',
-    globals: {
-      'three': 'THREE',
-    },
-    paths: {
-      three: './examples/node_modules/three/build/three.module.js'
-    }
+    // globals: {
+    //   'three': 'THREE',
+    // },
+    // paths: {
+    //   three: './examples/node_modules/three/build/three.module.js'
+    // }
   }],
   
   plugins: [

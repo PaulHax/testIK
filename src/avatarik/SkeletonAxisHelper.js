@@ -26,6 +26,7 @@ class BoneHelper extends Object3D {
         wireframe: true,
         depthTest: false,
         depthWrite: false,
+        transparent: true,
       }));
     } else {
       this.boneMesh = new Object3D();
@@ -193,4 +194,4 @@ class SkeletonAxisHelper extends Object3D {
   }
 }
 
-export default SkeletonAxisHelper;
+export { SkeletonAxisHelper };

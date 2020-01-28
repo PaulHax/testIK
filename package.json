@@ -6,12 +6,11 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "dev": "rollup -w -c rollup.dev.config.js",
-    "predeploy": "npm run build && shx mkdir -p .ghpages && shx cp -r examples/index.html examples/assets build/build.module.js .ghpages && rollup -c rollup.examples.config.js",
+    "predeploy": "rollup -c rollup.examples.config.js && shx mkdir -p .ghpages && shx cp -r examples/index.html examples/assets examples/build.js .ghpages",
     "trydeploy": "npm run predeploy && sirv start .ghpages",
     "deploy": "npm run predeploy && gh-pages -d .ghpages && shx rm -rf .ghpages"
   },
   "peerDependencies": {
-    
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -24,8 +23,9 @@
     "rollup-plugin-serve": "^1.0.1",
     "shx": "^0.2.2",
     "gh-pages": "^2.1.1",
-    "sirv-cli": "^0.4.4",
-    "three": "0.112.0"
+    "sirv-cli": "^0.4.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "three": "0.112.0"
+  }
 }

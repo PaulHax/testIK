@@ -15,10 +15,10 @@ export default {
     },
   }, {
     file: './build/build.module.js',
-    format: 'es',
-    globals: {
-      'three': 'THREE',
-    },
+    format: 'esm',
+    // globals: {
+    //   'three': 'THREE',
+    // },
   }],
  
   watch: {

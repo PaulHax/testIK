@@ -1,21 +1,22 @@
 
-import * as THREE from './node_modules/three/build/three.module.js';
-import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
-import { TransformControls } from './node_modules/three/examples/jsm/controls/TransformControls.js';
-import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from './node_modules/three/examples/jsm/loaders/RGBELoader.js';
-import { RoughnessMipmapper } from './node_modules/three/examples/jsm/utils/RoughnessMipmapper.js';
-// import { ActorParser, AvatarIK, MirroredTrackedPerson, SkeletonAxisHelper } from '../build/build.module.js';
+// import * as THREE from './node_modules/three/build/three.module.js';
+import * as THREE from 'three';
+import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
+import { TransformControls } from '../node_modules/three/examples/jsm/controls/TransformControls.js';
+import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from '../node_modules/three/examples/jsm/loaders/RGBELoader.js';
+import { RoughnessMipmapper } from '../node_modules/three/examples/jsm/utils/RoughnessMipmapper.js';
+// import { ActorParser, AvatarIK, MirroredTrackedPerson, SkeletonAxisHelper } from '../build/actor.module.js';
 import { ActorParser } from '../src/avatarik/ActorParser.js';
 import { AvatarIK } from '../src/avatarik/AvatarIK.js';
 import { MirroredTrackedPerson } from '../src/avatarik/TrackedPerson.js';
-// import { SkeletonAxisHelper } from '../src/SkeletonAxisHelper.js';
+import { SkeletonAxisHelper } from '../src/avatarik/SkeletonAxisHelper.js';
 var renderer, camera, scene, controls, trackedPerson, avatarIK;
 
 // var avatarConfig = {fileName: 'bot.glb', bonePrefix: 'mixamorig'}
 
 // var actorParser = new ActorParser({fileName: 'bot.glb', bonePrefix: 'mixamorig'})
-var actorParser = new ActorParser({fileName: 'sporty_lady.glb', bonePrefix: 'mixamorig6'})
+var actorParser = new ActorParser({fileName: 'sporty_lady.glb', bonePrefix: 'mixamorig6'});
 let avatarCarpet = new THREE.Object3D();
 
 function init() {
@@ -91,10 +92,10 @@ function init() {
   // light2.position.set(0.5, 0, 0.866); // ~60º
   // camera.add(light2)
 
-  var geometry = new THREE.SphereGeometry(.2, 50, 50, 0, Math.PI * 2, 0, Math.PI * 2);
-  var material = new THREE.MeshLambertMaterial();
-  var cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+  // var geometry = new THREE.SphereGeometry(.2, 50, 50, 0, Math.PI * 2, 0, Math.PI * 2);
+  // var material = new THREE.MeshLambertMaterial();
+  // var cube = new THREE.Mesh(geometry, material);
+  // scene.add(cube);
 
   controls = new OrbitControls(camera, renderer.domElement);
   controls.target0.set(0, 1, 0);
