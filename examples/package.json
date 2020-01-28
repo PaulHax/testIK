@@ -1,0 +1,11 @@
+{
+  "name": "three-actor-examples",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "author": "Paul Elliott",
+  "license": "MIT",
+  "dependencies": {
+    "three": "0.112.0"
+  }
+}
